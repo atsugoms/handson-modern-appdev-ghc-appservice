@@ -1,9 +1,4 @@
-# 前提環境の構築
-
-- GitHub Copilot
-- GitHub Codespaces
-
-
+# 開発環境の構築
 
 #### ⏳ 推定時間
 
@@ -25,6 +20,19 @@
 - Docker
 - Visual Studio Code
 - Node.js
+
+
+> [!IMPORTANT]  
+> 開発環境はWSLを利用するため「仮想化が有効」な環境が必要です。
+> Azure VM を利用する場合、docsを確認の上、機能サポートとして **「入れ子になった仮想化」がサポートされたシリーズ** を利用します。
+> 
+> 例:
+> - [Dsv4 シリーズ](https://learn.microsoft.com/ja-jp/azure/virtual-machines/sizes/general-purpose/dsv4-series)
+>     - Standard_D2s_v4
+>     - Standard_D4s_v4
+> - [Dsv5 シリーズ](https://learn.microsoft.com/ja-jp/azure/virtual-machines/sizes/general-purpose/dsv5-series)
+>     - Standard_D2s_v5
+>     - Standard_D4s_v5
 
 
 
@@ -241,23 +249,21 @@
 1. インストール
 
 
-## GitHub Copilot の設定
+## Visual Studio Code の設定
+
+### GitHub Copilot の設定
 
 1. 画面右下のCopilotアイコンを開き「Copilotの設定」を選択
 
 1. 「GitHubで続行する」を選択し、Copilotのライセンスがあるアカウントで GitHub へログイン
 
 
-## Visual Studio Code 拡張機能の追加
+### Visual Studio Code 拡張機能の追加
 
 1. 以下の拡張機能を追加
 
     - [WSL](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
     - [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions)
-<!--
-     - [Container Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers)
--->
 
-## 開発ツール
 
 
