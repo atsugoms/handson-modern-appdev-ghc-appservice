@@ -2,7 +2,8 @@
 
 #### ⏳ 推定時間
 
-- 3 ~ 5分
+- 40 ~ 60分
+
 
 #### 🗒️ 目次
 
@@ -10,7 +11,6 @@
 1. [WSL(Ubuntu) に ツールインストール](#wsl-ubuntu-にツールインストール)
 1. [Visual Studio Code インストール](#visual-studio-code-インストール)
 1. [Visual Studio Code の設定](#visual-studio-code-の設定)
-
 
 > [!IMPORTANT]  
 > 開発環境はWSLを利用するため「仮想化が有効」な環境が必要です。
@@ -23,7 +23,6 @@
 > - [Dsv5 シリーズ](https://learn.microsoft.com/ja-jp/azure/virtual-machines/sizes/general-purpose/dsv5-series)
 >     - Standard_D2s_v5
 >     - Standard_D4s_v5
-
 
 
 ## WSLインストール
