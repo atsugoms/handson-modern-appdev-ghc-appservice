@@ -15,7 +15,32 @@ Defender for Cloud に含まれる機能を有効化し、活用していく方�
 1. アプリ修正してプッシュ
 
 
+## Git初期設定
+
+1. PowerShell から WSL (Ubuntu) へログイン
+
+    ```
+    wsl ~
+    ```
+
+1. git 初期設定
+
+    ```
+    git config --global user.name "<GITHUB_ACCOUNT_NAME>"
+    git config --global user.email "<GITHUB_ACCOUNT_EMAIL>"
+    ```
+
+
 ## リポジトリ作成
+
+1. Visual Studio Code で WSL(Ubuntu) 内の プロジェクトフォルダ を開く
+
+    > [!TIP]  
+    > すでに Visual Studio Code を開いている場合、スキップできます。
+
+    1. Visual Studio Code を起動、左下「リモートウィンドウを開く」を選択し、「WSLへの接続」を実行
+
+    1. 今回のプロジェクトフォルダを開く
 
 1. GitHubへコミットできるよう不要ファイルを除外
 
