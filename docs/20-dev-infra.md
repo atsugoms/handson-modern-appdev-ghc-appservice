@@ -30,6 +30,8 @@ Defender for Cloud に含まれる機能を有効化し、活用していく方�
         - リソースグループ名: (任意)
         - リージョン: `Japan East`
     
+        ![](./images/ex20/0001-rg.png)
+
     1. タグ
 
         （なし）
@@ -38,12 +40,18 @@ Defender for Cloud に含まれる機能を有効化し、活用していく方�
 
         内容を確認して「作成」
 
+        ![](./images/ex20/0002-rg.png)
+
 
 ## コンテナレジストリ作成
 
 1. Azureポータルを開き、上段検索窓で「container registries」を検索して開く
 
+    ![](./images/ex20/0101-acr.png)
+
 1. 「作成」を選択
+
+    ![](./images/ex20/0102-acr.png)
 
 1. コンテナー レジストリの作成
 
@@ -58,6 +66,8 @@ Defender for Cloud に含まれる機能を有効化し、活用していく方�
         - 価格プラン: `Basic`
         - ロールの割り当てアクセス許可モード: `RBACレジストリ の アクセス許可`
 
+        ![](./images/ex20/0111-acr.png)
+
     1. ネットワーク ~ タグ
 
         (デフォルト まま)
@@ -66,14 +76,16 @@ Defender for Cloud に含まれる機能を有効化し、活用していく方�
 
         内容を確認して「作成」
 
+        ![](./images/ex20/0112-acr.png)
+
 
 ## コンテナレジストリに対する権限設定
 
 1. Azureポータルにて、作成したコンテナレジストリを開く
 
-1. [アクセス制御(IAM)] を開く
+1. [アクセス制御(IAM)] を開き、「ロールの割り当ての追加」を開く
 
-1. 「ロールの割り当ての追加」を開く
+    ![](./images/ex20/0121-role.png)
 
 1. ロールの割り当ての追加
 
@@ -81,19 +93,27 @@ Defender for Cloud に含まれる機能を有効化し、活用していく方�
 
         - 職務ロール: `AcrPush`
 
+        ![](./images/ex20/0122-role.png)
+
     1. メンバー
 
         - アクセスの割当先: `ユーザー、グループ、またはサービス プリンシパル`
         - メンバー: (自分自身)
-    
+
+        ![](./images/ex20/0123-role.png)
+
     1. レビューと割り当て
 
         内容を確認して「レビューと割り当て」
+
+        ![](./images/ex20/0124-role.png)
 
 
 ## 作成済みイメージをコンテナレジストリにプッシュ
 
 開発環境から Dockerイメージ を ACR へプッシュ
+
+コンテキストが変わるので**新規チャットで開始**します。
 
 1. 開発環境の Visual Studio Code で Copilot の Agent モード を起動
 
@@ -103,13 +123,22 @@ Defender for Cloud に含まれる機能を有効化し、活用していく方�
     作成済みのDockerイメージを確認して
     ```
 
+    ![](./images/ex20/0132-push.png)
+
+    ![](./images/ex20/0133-push.png)
+
 1. 作成したイメージをコンテナレジストリにプッシュ
+
+    `<IMAGE_NAME>` は前述のコマンドで取得されたイメージ名(`REPOSITORY`)を利用します。
+    `<ACR_SERVER_NAME>` は作成した Azure Container Registry の「概要」にある「ログイン サーバー」を利用します。
 
     ```
     作成済み Dockerイメージ `<IMAGE_NAME>` を
     Azure Container Registry `<ACR_SERVER_NAME>` へ
     azコマンドを使ってプッシュ
     ```
+
+    ![](./images/ex20/0134-push.png)
 
     > [!NOTE]  
     > 基本的なプッシュの流れは以下の手順です。
@@ -140,13 +169,19 @@ Defender for Cloud に含まれる機能を有効化し、活用していく方�
     >     docker push <ACR_SERVER_NAME>/<IMAGE_NAME>:latest
     >     ```
 
+    ![](./images/ex20/0135-push.png)
+
 Azureポータルにてプッシュされた Dockerイメージ を確認
 
 1. Azureポータルを開き、作成した Container Registry を開く
 
-1. [サービス]-[レポジトリ] を開く
+1. [サービス]-[レポジトリ] を開き、プッシュした「レポジトリ」を選択
 
-1. プッシュした「レポジトリ」を選択してイメージを確認
+    ![](./images/ex20/0141-checkpng.png)
+
+1. プッシュされたイメージを確認
+
+    ![](./images/ex20/0142-checkpng.png)
 
 
 
@@ -154,7 +189,11 @@ Azureポータルにてプッシュされた Dockerイメージ を確認
 
 1. Azureポータルを開き、上段検索窓で「コンテナー アプリ」を検索して開く
 
+    ![](./images/ex20/0201-aca.png)
+
 1. 「作成」から「コンテナー アプリ」を選択
+
+    ![](./images/ex20/0202-aca.png)
 
 1. コンテナー アプリ の作成
 
@@ -167,6 +206,8 @@ Azureポータルにてプッシュされた Dockerイメージ を確認
         - デプロイ元: `コンテナー イメージ`
         - リージョン: `Japan East`
         - Container Apps environment: (`新しい環境の作成` を選択)
+
+        ![](./images/ex20/0203-aca.png)
 
         1. Container Apps 環境の作成
 
@@ -182,6 +223,14 @@ Azureポータルにてプッシュされた Dockerイメージ を確認
             - ネットワーク
                 - パブリック ネットワーク アクセス: `有効`
                 - 自分の仮想ネットワークを使用する: `いいえ`
+
+            ![](./images/ex20/0204a-ace.png)
+
+            ![](./images/ex20/0204b-ace.png)
+
+            ![](./images/ex20/0204c-ace.png)
+
+            ![](./images/ex20/0204d-ace.png)
 
     1. コンテナー
 
@@ -201,6 +250,8 @@ Azureポータルにてプッシュされた Dockerイメージ を確認
         - ワークロード プロファイル: `Consumption`
         - CPU とメモリ: `0.5 CPU コア, 1 Gi メモリ`
          
+        ![](./images/ex20/0205-aca.png)
+
     1. イングレス
 
         アプリケーションのイングレス設定
@@ -208,6 +259,8 @@ Azureポータルにてプッシュされた Dockerイメージ を確認
         - イングレス トラフィック: `どこからでもトラフィックを受け入れます`
         - イングレス タイプ: `HTTP`
         - ターゲット ポート: `3000` (実装状態にあわせて見直します)
+
+        ![](./images/ex20/0206-aca.png)
 
     1. タグ
 
@@ -217,13 +270,18 @@ Azureポータルにてプッシュされた Dockerイメージ を確認
 
         内容を確認して「作成」
 
+        ![](./images/ex20/0207-aca.png)
+
 
 ## 動作確認
 
 1. 作成した コンテナー アプリ を開き、「概要」にある「アプリケーションURL」をメモ
 
+    ![](./images/ex20/0211-check.png)
 
 1. ブラウザをシークレットモードで立ち上げてメモした「アプリケーションURL」を開く
+
+    ![](./images/ex20/0212-check.png)
 
 
 
