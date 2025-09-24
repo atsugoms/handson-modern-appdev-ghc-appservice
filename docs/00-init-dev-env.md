@@ -13,16 +13,21 @@
 1. [Visual Studio Code の設定](#visual-studio-code-の設定)
 
 > [!IMPORTANT]  
+> 本手順は **Windows 環境** を前提としています。
+> 他の環境(macOS, Linux)は読み替えて準備をしてください。
+> なお、ローカル環境 か 仮想環境 か については問いません。
+
+> [!IMPORTANT]  
 > 開発環境はWSLを利用するため「仮想化が有効」な環境が必要です。
 > Azure VM を利用する場合、docsを確認の上、機能サポートとして **「入れ子になった仮想化」がサポートされたシリーズ** を利用します。
 > 
 > 例:
 > - [Dsv4 シリーズ](https://learn.microsoft.com/ja-jp/azure/virtual-machines/sizes/general-purpose/dsv4-series)
->     - Standard_D2s_v4
 >     - Standard_D4s_v4
+>     - Standard_D8s_v4
 > - [Dsv5 シリーズ](https://learn.microsoft.com/ja-jp/azure/virtual-machines/sizes/general-purpose/dsv5-series)
->     - Standard_D2s_v5
 >     - Standard_D4s_v5
+>     - Standard_D8s_v5
 
 
 ## WSLインストール
@@ -265,7 +270,11 @@
 
 1. 画面右下のCopilotアイコンを開き「Copilotの設定」を選択
 
+    ![](./images/ex00/0001-copilot.png)
+
 1. 「GitHubで続行する」を選択し、Copilotのライセンスがあるアカウントで GitHub へログイン
+
+    ![](./images/ex00/0002-copilot.png)
 
 
 ### Visual Studio Code 拡張機能の追加
