@@ -52,6 +52,7 @@
 1. WSLインストール
 
     ```
+    wsl --update
     wsl --install --distribution ubuntu
     ```
 
